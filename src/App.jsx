@@ -15,7 +15,7 @@ function App() {
   });
   return (
     <>
-      <h1 className='text-4xl font-bold'>Desserts</h1>
+      <h1 className='text-4xl font-bold text-custom-Rose-900'>Desserts</h1>
       <main className='grid gap-2'>{cards}</main>
     </>
   );
