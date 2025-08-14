@@ -14,6 +14,7 @@ function App() {
         name={product.name}
         price={product.price}
         setCart={setCart}
+        id={product.id}
       />
     );
   });
