@@ -7,6 +7,7 @@ export default function ProductCard({
   id,
   isInCart,
   quantity,
+  increaseQuantity,
 }) {
   return (
     <article className='relative'>
@@ -35,7 +36,10 @@ export default function ProductCard({
             />
           </button>
           <span className='text-custom-Rose-100 '>{quantity(id).quantity}</span>
-          <button className='cursor-pointer active:scale-95'>
+          <button
+            onClick={() => increaseQuantity(id)}
+            className='cursor-pointer active:scale-95'
+          >
             <img
               className='border rounded-full py-1 px-1 w-4.5 '
               src='./public/images/icon-increment-quantity.svg'

@@ -12,6 +12,13 @@ function App() {
   const quantity = (id) => {
     return cart.find((item) => item.id === id);
   };
+  const increaseQuantity = (id) => {
+    setCart((prevState) =>
+      prevState.map((item) => {
+        return item.id === id ? { ...item, quantity: item.quantity + 1 } : item;
+      })
+    );
+  };
 
   const cards = Products.map((product) => {
     return (
@@ -25,6 +32,7 @@ function App() {
         id={product.id}
         isInCart={isInCart}
         quantity={quantity}
+        increaseQuantity={increaseQuantity}
       />
     );
   });
