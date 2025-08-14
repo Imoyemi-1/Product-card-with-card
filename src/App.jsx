@@ -5,6 +5,14 @@ import Cart from './components/Cart';
 
 function App() {
   const [cart, setCart] = useState([]);
+
+  const isInCart = (id) => {
+    return cart.some((item) => item.id === id);
+  };
+  const quantity = (id) => {
+    return cart.find((item) => item.id === id);
+  };
+
   const cards = Products.map((product) => {
     return (
       <ProductCard
@@ -15,6 +23,8 @@ function App() {
         price={product.price}
         setCart={setCart}
         id={product.id}
+        isInCart={isInCart}
+        quantity={quantity}
       />
     );
   });
