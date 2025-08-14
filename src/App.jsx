@@ -34,6 +34,12 @@ function App() {
     );
   };
 
+  // remove product is cart
+
+  const removeProduct = (id) => {
+    setCart((prevState) => prevState.filter((item) => item.id !== id));
+  };
+
   const cards = Products.map((product) => {
     return (
       <ProductCard
@@ -48,9 +54,11 @@ function App() {
         quantity={quantity}
         increaseQuantity={increaseQuantity}
         decreaseQuantity={decreaseQuantity}
+        removeProduct={removeProduct}
       />
     );
   });
+
   return (
     <>
       <h1 className='text-4xl font-bold text-custom-Rose-900'>Desserts</h1>

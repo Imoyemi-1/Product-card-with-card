@@ -9,6 +9,7 @@ export default function ProductCard({
   quantity,
   increaseQuantity,
   decreaseQuantity,
+  removeProduct,
 }) {
   return (
     <article className='relative'>
@@ -30,7 +31,11 @@ export default function ProductCard({
       -translate-x-1/2 border border-custom-Red text-custom-Rose-50'
         >
           <button
-            onClick={() => decreaseQuantity(id)}
+            onClick={() => {
+              quantity(id).quantity > 1
+                ? decreaseQuantity(id)
+                : removeProduct(id);
+            }}
             className='cursor-pointer active:scale-95 '
           >
             <img
