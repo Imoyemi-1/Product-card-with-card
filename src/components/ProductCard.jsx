@@ -8,6 +8,7 @@ export default function ProductCard({
   isInCart,
   quantity,
   increaseQuantity,
+  decreaseQuantity,
 }) {
   return (
     <article className='relative'>
@@ -28,7 +29,10 @@ export default function ProductCard({
           className='flex justify-between item-center py-2.5 px-4 w-41 rounded-4xl gap-2 bg-custom-Red shadow  absolute z-10 bottom-22 left-1/2
       -translate-x-1/2 border border-custom-Red text-custom-Rose-50'
         >
-          <button className='cursor-pointer active:scale-95 '>
+          <button
+            onClick={() => decreaseQuantity(id)}
+            className='cursor-pointer active:scale-95 '
+          >
             <img
               className='border rounded-full py-1.5 px-0.5 '
               src='./public/images/icon-decrement-quantity.svg'

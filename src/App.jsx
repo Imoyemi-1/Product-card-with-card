@@ -6,16 +6,30 @@ import Cart from './components/Cart';
 function App() {
   const [cart, setCart] = useState([]);
 
+  // check if product is already in the array
   const isInCart = (id) => {
     return cart.some((item) => item.id === id);
   };
+
+  // find product and get the quantity in the cart array
   const quantity = (id) => {
     return cart.find((item) => item.id === id);
   };
+
+  // increase product quantity amount in the cart
   const increaseQuantity = (id) => {
     setCart((prevState) =>
       prevState.map((item) => {
         return item.id === id ? { ...item, quantity: item.quantity + 1 } : item;
+      })
+    );
+  };
+
+  // decrease product quantity amount in the cart
+  const decreaseQuantity = (id) => {
+    setCart((prevState) =>
+      prevState.map((item) => {
+        return item.id === id ? { ...item, quantity: item.quantity - 1 } : item;
       })
     );
   };
@@ -33,6 +47,7 @@ function App() {
         isInCart={isInCart}
         quantity={quantity}
         increaseQuantity={increaseQuantity}
+        decreaseQuantity={decreaseQuantity}
       />
     );
   });
