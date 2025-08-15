@@ -69,9 +69,11 @@ function App() {
   });
 
   return (
-    <>
-      <h1 className='text-4xl font-bold text-custom-Rose-900'>Desserts</h1>
-      <main className='grid gap-6'>{cards}</main>
+    <div className='grid gap-6 lg:grid-cols-[1fr_300px]'>
+      <h1 className='text-4xl font-bold text-custom-Rose-900 lg:col-span-2'>
+        Desserts
+      </h1>
+      <main className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>{cards}</main>
       <Cart
         cart={cart}
         totalPrice={totalPrice}
@@ -86,7 +88,7 @@ function App() {
           setOrderConfirm={setOrderConfirm}
         />
       )}
-    </>
+    </div>
   );
 }
 

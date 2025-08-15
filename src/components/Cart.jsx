@@ -37,7 +37,7 @@ export default function Cart({
     );
   });
   return (
-    <section className='bg-white p-6 rounded-2xl space-y-4 shadow'>
+    <section className='bg-white p-6 rounded-2xl space-y-4 shadow h-fit relative -top-8'>
       <h2 className='text-custom-Red font-bold text-2xl'>
         Your Cart ({totalQuantity})
       </h2>

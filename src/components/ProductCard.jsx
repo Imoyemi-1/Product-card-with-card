@@ -70,7 +70,7 @@ export default function ProductCard({
       -translate-x-1/2 border border-custom-Rose-300 cursor-pointer hover:border-custom-Red transition-colors duration-200'
         >
           <img src='./public/images/icon-add-to-cart.svg' alt='cart' />
-          <span className='font-medium'>Add to Card</span>
+          <span className='font-medium text-nowrap'>Add to Cart</span>
         </button>
       )}
     </article>
