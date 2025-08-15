@@ -72,7 +72,12 @@ function App() {
     <>
       <h1 className='text-4xl font-bold text-custom-Rose-900'>Desserts</h1>
       <main className='grid gap-6'>{cards}</main>
-      <Cart cart={cart} totalPrice={totalPrice} removeProduct={removeProduct} />
+      <Cart
+        cart={cart}
+        totalPrice={totalPrice}
+        removeProduct={removeProduct}
+        setOrderConfirm={setOrderConfirm}
+      />
       {orderConfirm && <OrderConfirmed cart={cart} totalPrice={totalPrice} />}
     </>
   );

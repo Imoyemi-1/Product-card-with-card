@@ -1,4 +1,9 @@
-export default function Cart({ cart, removeProduct, totalPrice }) {
+export default function Cart({
+  cart,
+  removeProduct,
+  totalPrice,
+  setOrderConfirm,
+}) {
   // calculate total quantity to display
   const totalQuantity = cart.reduce((acc, cur) => acc + cur.quantity, 0);
 
@@ -56,6 +61,10 @@ export default function Cart({ cart, removeProduct, totalPrice }) {
           <button
             className='bg-custom-Red text-custom-Rose-50 font-medium rounded-3xl w-full py-3 mt-2 hover:bg-amber-900 transition-colors duration-300 cursor-pointer'
             aria-label='confirm order'
+            onClick={() => {
+              setOrderConfirm(true);
+              document.querySelector('body').style.overflow = 'hidden';
+            }}
           >
             Confirm Order
           </button>
