@@ -1,5 +1,10 @@
 export default function Cart({ cart }) {
   const totalQuantity = cart.reduce((acc, cur) => acc + cur.quantity, 0);
+  const totalPrice = cart.reduce(
+    (acc, cur) => acc + cur.quantity * cur.price,
+    0
+  );
+
   const cartList = cart.map((item) => {
     return (
       <li
@@ -34,7 +39,13 @@ export default function Cart({ cart }) {
         Your Cart ({totalQuantity})
       </h2>
       {cart.length > 0 ? (
-        <ul>{cartList}</ul>
+        <>
+          <ul>{cartList}</ul>
+          <div className='flex items-center justify-between py-3'>
+            <p>Order Total</p>
+            <p className='text-2xl font-bold'>${totalPrice.toFixed(2)}</p>
+          </div>
+        </>
       ) : (
         <div className='flex flex-col gap-6 w-full mt-15'>
           <img
