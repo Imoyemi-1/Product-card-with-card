@@ -59,6 +59,7 @@ export default function OrderConfirmed({
             setCart([]);
             setOrderConfirm(false);
             document.querySelector('body').style.overflow = 'auto';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
           Start New Order
