@@ -29,7 +29,7 @@ export default function Cart({
         </div>
         <img
           className='border border-custom-Rose-300 rounded-full p-1 hover:bg-black/10 transition-all duration-300 active:scale-75 cursor-pointer '
-          src='./public/images/icon-remove-item.svg'
+          src='/images/icon-remove-item.svg'
           alt='remove button'
           onClick={() => removeProduct(item.id)}
         />
@@ -49,10 +49,7 @@ export default function Cart({
             <p className='text-2xl font-bold'>${totalPrice.toFixed(2)}</p>
           </div>
           <div className='flex gap-2 items-center bg-custom-Rose-100 rounded-md px-12 py-4'>
-            <img
-              src='./public/images/icon-carbon-neutral.svg'
-              alt=' carbon neutral'
-            />
+            <img src='/images/icon-carbon-neutral.svg' alt=' carbon neutral' />
             <p>
               This is a <span className='font-semibold'>Carbon-neutral</span>{' '}
               delivery
@@ -72,7 +69,7 @@ export default function Cart({
       ) : (
         <div className='flex flex-col gap-6 w-full mt-15'>
           <img
-            src='./public/images/illustration-empty-cart.svg'
+            src='/images/illustration-empty-cart.svg'
             alt='empty-cart'
             className='object-cover w-30 m-auto'
           />
