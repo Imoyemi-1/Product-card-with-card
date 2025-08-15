@@ -1,4 +1,4 @@
-export default function Cart({ cart }) {
+export default function Cart({ cart, removeProduct }) {
   const totalQuantity = cart.reduce((acc, cur) => acc + cur.quantity, 0);
   const totalPrice = cart.reduce(
     (acc, cur) => acc + cur.quantity * cur.price,
@@ -29,6 +29,7 @@ export default function Cart({ cart }) {
           className='border border-custom-Rose-300 rounded-full p-1 hover:bg-black/10 transition-all duration-300 active:scale-75 cursor-pointer '
           src='./public/images/icon-remove-item.svg'
           alt='remove button'
+          onClick={() => removeProduct(item.id)}
         />
       </li>
     );
