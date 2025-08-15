@@ -45,6 +45,22 @@ export default function Cart({ cart }) {
             <p>Order Total</p>
             <p className='text-2xl font-bold'>${totalPrice.toFixed(2)}</p>
           </div>
+          <div className='flex gap-2 items-center bg-custom-Rose-100 rounded-md px-12 py-4'>
+            <img
+              src='./public/images/icon-carbon-neutral.svg'
+              alt=' carbon neutral'
+            />
+            <p>
+              This is a <span className='font-semibold'>Carbon-neutral</span>{' '}
+              delivery
+            </p>
+          </div>
+          <button
+            className='bg-custom-Red text-custom-Rose-50 font-medium rounded-3xl w-full py-3 mt-2 hover:bg-amber-900 transition-colors duration-300 cursor-pointer'
+            aria-label='confirm order'
+          >
+            Confirm Order
+          </button>
         </>
       ) : (
         <div className='flex flex-col gap-6 w-full mt-15'>
