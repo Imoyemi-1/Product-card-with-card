@@ -1,5 +1,16 @@
-export default function ProductCard({ bgImg, name, category, price }) {
-  //   console.log();
+export default function ProductCard({
+  bgImg,
+  name,
+  category,
+  price,
+  setCart,
+  id,
+  isInCart,
+  quantity,
+  increaseQuantity,
+  decreaseQuantity,
+  removeProduct,
+}) {
   return (
     <article className='relative'>
       <picture>
@@ -14,13 +25,54 @@ export default function ProductCard({ bgImg, name, category, price }) {
       <span className='text-custom-Rose-400'>{category}</span>
       <p className='font-semibold text-custom-Rose-900'>{name}</p>
       <p className='font-semibold text-custom-Red'>${price.toFixed(2)}</p>
-      <div
-        className='flex py-2.5 px-6 rounded-4xl gap-2 bg-custom-Rose-50 shadow w-fit absolute z-10 bottom-22 left-1/2
-      -translate-x-1/2 border border-custom-Rose-300 cursor-pointer'
-      >
-        <img src='./public/images/icon-add-to-cart.svg' alt='cart' />
-        <span className='font-medium'>Add to Card</span>
-      </div>
+      {isInCart(id) ? (
+        <div
+          className='flex justify-between item-center py-2.5 px-4 w-41 rounded-4xl gap-2 bg-custom-Red shadow  absolute z-10 bottom-22 left-1/2
+      -translate-x-1/2 border border-custom-Red text-custom-Rose-50'
+        >
+          <button
+            onClick={() => {
+              quantity(id).quantity > 1
+                ? decreaseQuantity(id)
+                : removeProduct(id);
+            }}
+            className='cursor-pointer active:scale-95 '
+          >
+            <img
+              className='border rounded-full py-1.5 px-0.5 '
+              src='./public/images/icon-decrement-quantity.svg'
+              alt='decrement quantity'
+            />
+          </button>
+          <span className='text-custom-Rose-100 '>{quantity(id).quantity}</span>
+          <button
+            onClick={() => increaseQuantity(id)}
+            className='cursor-pointer active:scale-95'
+          >
+            <img
+              className='border rounded-full py-1 px-1 w-4.5 '
+              src='./public/images/icon-increment-quantity.svg'
+              alt='decrement quantity'
+            />
+          </button>
+        </div>
+      ) : (
+        <button
+          onClick={() => {
+            setCart((prevState) => {
+              return [
+                ...prevState,
+                { id, name, price, img: bgImg.thumbnail, quantity: 1 },
+              ];
+            });
+          }}
+          className='flex py-2.5 px-6 rounded-4xl gap-2 bg-custom-Rose-50 shadow w-fit absolute z-10 bottom-22 left-1/2
+      -translate-x-1/2 border border-custom-Rose-300 cursor-pointer hover:border-custom-Red transition-colors duration-200'
+        >
+          <img src='./public/images/icon-add-to-cart.svg' alt='cart' />
+          <span className='font-medium text-nowrap'>Add to Cart</span>
+        </button>
+      )}
     </article>
   );
 }
