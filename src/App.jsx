@@ -78,7 +78,14 @@ function App() {
         removeProduct={removeProduct}
         setOrderConfirm={setOrderConfirm}
       />
-      {orderConfirm && <OrderConfirmed cart={cart} totalPrice={totalPrice} />}
+      {orderConfirm && (
+        <OrderConfirmed
+          cart={cart}
+          totalPrice={totalPrice}
+          setCart={setCart}
+          setOrderConfirm={setOrderConfirm}
+        />
+      )}
     </>
   );
 }

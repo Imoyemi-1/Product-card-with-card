@@ -1,4 +1,9 @@
-export default function OrderConfirmed({ cart, totalPrice }) {
+export default function OrderConfirmed({
+  cart,
+  totalPrice,
+  setOrderConfirm,
+  setCart,
+}) {
   const orderList = cart.map((item) => {
     return (
       <li
@@ -49,7 +54,12 @@ export default function OrderConfirmed({ cart, totalPrice }) {
         </div>
         <button
           className='bg-custom-Red text-custom-Rose-50 font-medium rounded-3xl w-full py-3 mt-2 hover:bg-amber-900 transition-colors duration-300 cursor-pointer'
-          aria-label='confirm order'
+          aria-label='start new order'
+          onClick={() => {
+            setCart([]);
+            setOrderConfirm(false);
+            document.querySelector('body').style.overflow = 'auto';
+          }}
         >
           Start New Order
         </button>
