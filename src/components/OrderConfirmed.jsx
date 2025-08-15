@@ -35,7 +35,7 @@ export default function OrderConfirmed({
     <div className='fixed top-0 left-0 w-full h-full z-50  p-4 flex justify-center bg-black/80 overflow-y-auto'>
       <div className='bg-white p-7 rounded-md shadow space-y-4 max-w-[550px] w-full h-fit m-auto'>
         <img
-          src='./public/images/icon-order-confirmed.svg'
+          src='/images/icon-order-confirmed.svg'
           alt='order confirmed icon'
         />
         <div>

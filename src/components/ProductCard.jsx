@@ -40,7 +40,7 @@ export default function ProductCard({
           >
             <img
               className='border rounded-full py-1.5 px-0.5 '
-              src='./public/images/icon-decrement-quantity.svg'
+              src='/images/icon-decrement-quantity.svg'
               alt='decrement quantity'
             />
           </button>
@@ -51,7 +51,7 @@ export default function ProductCard({
           >
             <img
               className='border rounded-full py-1 px-1 w-4.5 '
-              src='./public/images/icon-increment-quantity.svg'
+              src='/images/icon-increment-quantity.svg'
               alt='decrement quantity'
             />
           </button>
@@ -69,7 +69,7 @@ export default function ProductCard({
           className='flex py-2.5 px-6 rounded-4xl gap-2 bg-custom-Rose-50 shadow w-fit absolute z-10 bottom-22 left-1/2
       -translate-x-1/2 border border-custom-Rose-300 cursor-pointer hover:border-custom-Red transition-colors duration-200'
         >
-          <img src='./public/images/icon-add-to-cart.svg' alt='cart' />
+          <img src='/images/icon-add-to-cart.svg' alt='cart' />
           <span className='font-medium text-nowrap'>Add to Cart</span>
         </button>
       )}
