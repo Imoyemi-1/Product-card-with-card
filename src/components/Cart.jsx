@@ -1,9 +1,6 @@
-export default function Cart({ cart, removeProduct }) {
+export default function Cart({ cart, removeProduct, totalPrice }) {
+  // calculate total quantity to display
   const totalQuantity = cart.reduce((acc, cur) => acc + cur.quantity, 0);
-  const totalPrice = cart.reduce(
-    (acc, cur) => acc + cur.quantity * cur.price,
-    0
-  );
 
   const cartList = cart.map((item) => {
     return (
@@ -35,7 +32,7 @@ export default function Cart({ cart, removeProduct }) {
     );
   });
   return (
-    <section className='bg-white p-6 rounded-2xl space-y-4'>
+    <section className='bg-white p-6 rounded-2xl space-y-4 shadow'>
       <h2 className='text-custom-Red font-bold text-2xl'>
         Your Cart ({totalQuantity})
       </h2>

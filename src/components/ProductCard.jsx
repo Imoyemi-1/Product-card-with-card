@@ -60,7 +60,10 @@ export default function ProductCard({
         <button
           onClick={() => {
             setCart((prevState) => {
-              return [...prevState, { id, name, price, quantity: 1 }];
+              return [
+                ...prevState,
+                { id, name, price, img: bgImg.thumbnail, quantity: 1 },
+              ];
             });
           }}
           className='flex py-2.5 px-6 rounded-4xl gap-2 bg-custom-Rose-50 shadow w-fit absolute z-10 bottom-22 left-1/2

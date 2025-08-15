@@ -2,9 +2,11 @@ import { useState } from 'react';
 import ProductCard from './components/ProductCard';
 import { Products } from './data/product';
 import Cart from './components/Cart';
+import OrderConfirmed from './components/OrderConfirmed';
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [orderConfirm, setOrderConfirm] = useState(false);
 
   // check if product is already in the array
   const isInCart = (id) => {
@@ -33,6 +35,13 @@ function App() {
       })
     );
   };
+
+  // calculate total price
+
+  const totalPrice = cart.reduce(
+    (acc, cur) => acc + cur.quantity * cur.price,
+    0
+  );
 
   // remove product is cart
 
@@ -63,7 +72,8 @@ function App() {
     <>
       <h1 className='text-4xl font-bold text-custom-Rose-900'>Desserts</h1>
       <main className='grid gap-6'>{cards}</main>
-      <Cart cart={cart} removeProduct={removeProduct} />
+      <Cart cart={cart} totalPrice={totalPrice} removeProduct={removeProduct} />
+      {orderConfirm && <OrderConfirmed cart={cart} totalPrice={totalPrice} />}
     </>
   );
 }
